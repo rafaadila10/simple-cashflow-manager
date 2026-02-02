@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: adonis
+      POSTGRES_PASSWORD: adonis123
+      POSTGRES_DB: finance_app
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    command: node ace serve --watch
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3333:3333"
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
