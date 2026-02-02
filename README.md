@@ -63,7 +63,7 @@ Table: `transactions`
 ## How To Run (Docker)
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/rafaadila10/simple-cashflow-manager.git
 cd simple-cashflow-manager
 docker-compose up -d
 ```
